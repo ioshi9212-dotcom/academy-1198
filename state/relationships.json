@@ -1,0 +1,157 @@
+{
+  "schema": "relationships_v1",
+  "project": "academy-1198",
+  "date": "1198-08-15",
+  "purpose": "Стартовые отношения и скрытые связки. Этот файл хранит динамику отношений, а не полные анкеты персонажей.",
+  "rules": {
+    "npc_cannot_read_thoughts": true,
+    "knowledge_requires_source": true,
+    "hidden_relationships_do_not_equal_public_knowledge": true,
+    "update_after_meaningful_scene": true,
+    "do_not_reset_relationships_between_scenes": true
+  },
+  "relationships": {
+    "akira_livia": {
+      "ids": ["akira", "livia_cross"],
+      "type": "old_school_friendship",
+      "public_status": "старые подруги, прибывают вместе в Академию",
+      "private_status": "Ливия знает привычки Акиры лучше большинства; Акира терпит шум Ливии легче, чем шум чужих людей",
+      "current_level": "close",
+      "trust": 78,
+      "tension": 12,
+      "open_threads": [
+        "1198-08-15 — Акира и Ливия заселяются вместе в комнату на 2 этаже",
+        "Ливия будет вытаскивать Акиру в социальные сцены",
+        "Ливия не должна становиться только хвостом Акиры: у неё своя линия, ревность и старые раны"
+      ],
+      "known_by": ["akira", "livia_cross", "kir_knox"]
+    },
+    "akira_kir": {
+      "ids": ["akira", "kir_knox"],
+      "type": "old_friend / unstable_rhythm",
+      "public_status": "прибывают вместе с Ливией",
+      "private_status": "Кир знает школьную Акиру и может считывать её молчание точнее новых людей",
+      "current_level": "familiar_close",
+      "trust": 58,
+      "tension": 26,
+      "open_threads": [
+        "Кир не исчезает после прибытия",
+        "Кир неудобен для Третьего ряда, потому что ломает прямой ритм давления"
+      ],
+      "known_by": ["akira", "kir_knox", "livia_cross"]
+    },
+    "raiden_haru": {
+      "ids": ["raiden_sterling", "haru_foster"],
+      "type": "childhood_best_friends",
+      "public_status": "узнаваемая связка сильных студентов",
+      "private_status": "Хару умеет читать Райдена лучше большинства; Райден терпит Хару рядом там, где других бы отрезал",
+      "current_level": "very_close",
+      "trust": 86,
+      "tension": 18,
+      "open_threads": [
+        "17 августа баскетбол должен показать их связку без объяснений",
+        "Хару может остановить Райдена, но не управляет им",
+        "Райден и Хару не должны играться как случайные знакомые"
+      ],
+      "known_by": ["raiden_sterling", "haru_foster", "academy_social_circle"]
+    },
+    "akira_raiden": {
+      "ids": ["akira", "raiden_sterling"],
+      "type": "hidden_bond / public_strangers_at_start",
+      "public_status": "на старте не знакомы близко",
+      "hidden_status": "скрытая связь через цикл; персонажи этого не знают",
+      "current_level": "not_met_or_barely_seen",
+      "trust": 0,
+      "tension": 42,
+      "attraction_or_pull": "body_before_thought",
+      "open_threads": [
+        "1198-08-18 — первый учебный спарринг",
+        "1198-08-20 — вынужденный синхрон",
+        "связь проявлять только через реакции тела, раздражение, узнавание ритма и сбои дистанции"
+      ],
+      "known_by": [],
+      "source_ref": "canon/hidden_raiden_akira_bond.md"
+    },
+    "akira_haru": {
+      "ids": ["akira", "haru_foster"],
+      "type": "early_social_bridge / future_romantic_tension",
+      "public_status": "Хару может первым из сильных студентов нормально заговорить с Акирой",
+      "private_status": "Хару тянется к Акире через интерес, тепло и азарт, но не должен сразу становиться идеальным романтиком",
+      "current_level": "not_met_at_start",
+      "trust": 0,
+      "tension": 16,
+      "open_threads": [
+        "15 августа Хару появляется, если Акира не закрылась полностью",
+        "26 августа линия Нэи показывает неидеальность Хару"
+      ],
+      "known_by": []
+    },
+    "livia_raiden": {
+      "ids": ["livia_cross", "raiden_sterling"],
+      "type": "future_interest / rejection_thread",
+      "public_status": "на старте не закреплено",
+      "private_status": "Ливия может заинтересоваться Райденом из-за статуса, холода и недоступности",
+      "current_level": "not_started",
+      "trust": 0,
+      "tension": 20,
+      "open_threads": [
+        "Ливия не должна выглядеть карикатурой: её интерес к Райдену связан с вниманием, азартом и старыми ранами",
+        "Райден плохо переносит вторжение в личное пространство"
+      ],
+      "known_by": []
+    },
+    "livia_haru": {
+      "ids": ["livia_cross", "haru_foster"],
+      "type": "future_shift / complicated_attention",
+      "public_status": "на старте не закреплено",
+      "private_status": "после боли от Райдена Ливия может переключаться на Хару, но Хару внутренне сильнее выделяет Акиру",
+      "current_level": "not_started",
+      "trust": 0,
+      "tension": 22,
+      "open_threads": [
+        "не делать Ливию плоской ревнивой подругой",
+        "Хару флиртует легко, но важные чувства должны строиться сценами"
+      ],
+      "known_by": []
+    },
+    "livia_asher": {
+      "ids": ["livia_cross", "asher_lane"],
+      "type": "school_past / unclosed_wound",
+      "public_status": "в августе не активно, Ашер возвращается 1 сентября",
+      "private_status": "Ливия ушла от Ашера после обесценивания, но осталась боль неофициальности",
+      "current_level": "past_unresolved",
+      "trust": 18,
+      "tension": 72,
+      "open_threads": [
+        "1198-09-01 — возвращение Ашера вскрывает старую боль Ливии"
+      ],
+      "known_by": ["livia_cross", "asher_lane", "akira"]
+    },
+    "akira_kai": {
+      "ids": ["akira", "kai_renwick"],
+      "type": "school_past / humiliation_thread",
+      "public_status": "в августе не активно, Кай возвращается 1 сентября",
+      "private_status": "Кай связан со школьной историей, где Акира оказалась в неприятной публичной ситуации",
+      "current_level": "past_unresolved",
+      "trust": 4,
+      "tension": 80,
+      "open_threads": [
+        "1198-09-01 — возвращение Кая может включить защитную реакцию Акиры и Ливии"
+      ],
+      "known_by": ["akira", "kai_renwick", "livia_cross"]
+    },
+    "third_row_raiden_haru": {
+      "ids": ["maren_voss", "silas_rove", "roan_kell", "raiden_sterling", "haru_foster"],
+      "type": "academy_pressure_group",
+      "public_status": "Третий ряд цепляет статус Райдена и роль Хару рядом с ним",
+      "private_status": "Марен давит телом, Сайлас словами, Роан весом группы",
+      "current_level": "active_from_1198_08_17",
+      "trust": 0,
+      "tension": 68,
+      "open_threads": [
+        "1198-08-17 — первое появление на баскетбольной площадке"
+      ],
+      "known_by": ["academy_social_circle"]
+    }
+  }
+}
