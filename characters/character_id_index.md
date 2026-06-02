@@ -19,3 +19,7 @@
 | veronica_ellard | Вероника Эллард | Main supporting / Akira rival / status conflict | characters/main/veronica_ellard.md |
 | asher_lane | Ашер Лейн | Recurring / key_candidate / Livia school past | characters/npc/asher_lane.md |
 | kai_renwick | Кай Ренвик | Recurring / key_candidate / Akira school past | characters/npc/kai_renwick.md |
+| maren_voss | Марен Восс | Recurring / Third Row / physical pressure rival | characters/npc/maren_voss.md |
+| silas_rove | Сайлас Роув | Recurring / Third Row / social poison analyst | characters/npc/silas_rove.md |
+| roan_kell | Роан Келл | Recurring / Third Row / physical pressure support | characters/npc/roan_kell.md |
+| neya_valt | Нэя Вальт | Recurring / quiet emotional node / Haru past thread | characters/npc/neya_valt.md |
