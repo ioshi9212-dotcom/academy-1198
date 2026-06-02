@@ -1,0 +1,110 @@
+{
+  "schema": "reputation_state_v1",
+  "project": "academy-1198",
+  "date": "1198-08-15",
+  "rules": {
+    "reputation_differs_by_group": true,
+    "rumors_need_source": true,
+    "public_reputation_is_not_hidden_lore": true,
+    "akira_must_not_become_legend_without_scenes": true,
+    "update_after_public_scene": true
+  },
+  "groups": {
+    "novices": {},
+    "senior_students": {},
+    "instructors": {},
+    "academy_staff": {},
+    "haru_social_circle": {},
+    "raiden_social_circle": {},
+    "samuel_observers": {},
+    "medical_block": {},
+    "third_row_circle": {}
+  },
+  "characters": {
+    "akira": {
+      "public_reputation": "новичок, пока почти неизвестна; заметна из-за белых волос и слишком спокойной манеры",
+      "known_traits": ["белые волосы", "ровный взгляд", "держит дистанцию"],
+      "suspicions": [],
+      "positive_attention": [],
+      "negative_attention": [],
+      "rumor_hooks": [
+        "слишком спокойная для новичка",
+        "необычная внешность",
+        "может скрывать уровень",
+        "рядом с Ливией и Киром пришла в Академию в обычной одежде"
+      ]
+    },
+    "livia_cross": {
+      "public_reputation": "социальная, шумная и заметная новичок рядом с Акирой",
+      "known_traits": ["быстро входит в контакт", "любит внимание", "держится рядом с Акирой"],
+      "suspicions": [],
+      "positive_attention": [],
+      "negative_attention": [],
+      "rumor_hooks": ["слишком явно смотрит на сильных парней", "быстро заводит знакомства"]
+    },
+    "kir_knox": {
+      "public_reputation": "новичок рядом с Акирой и Ливией; странный ритм, неочевидная реакция",
+      "known_traits": ["ломает прямой темп", "может выглядеть тревожно спокойным"],
+      "suspicions": [],
+      "positive_attention": [],
+      "negative_attention": [],
+      "rumor_hooks": ["непонятно, насколько близок к Акире и Ливии"]
+    },
+    "raiden_sterling": {
+      "public_reputation": "сильный, грубый, высокий статус, лучше не лезть без причины",
+      "known_traits": ["дисциплинированный", "язвительный", "связан с влиятельной семьёй", "друг Хару", "холод/воздух"],
+      "suspicions": [],
+      "positive_attention": ["поклонницы", "студенты, которые уважают силу"],
+      "negative_attention": ["те, кого он публично осаживал или игнорировал"],
+      "rumor_hooks": ["не терпит прикосновения", "резко ставит на место тех, кто переходит черту"]
+    },
+    "haru_foster": {
+      "public_reputation": "яркий, сильный, общительный, флиртующий, заметный",
+      "known_traits": ["жар/огонь", "рыжие волосы", "друг Райдена", "много флиртует", "не клоун"],
+      "suspicions": [],
+      "positive_attention": ["поклонницы", "социальные компании"],
+      "negative_attention": ["ревнивые соперники", "те, кто считает его несерьёзным"],
+      "rumor_hooks": ["флиртует почти со всеми", "может резко стать серьёзным"]
+    },
+    "kiara_volt": {
+      "public_reputation": "яркая социальная соперница рядом с сильными студентами",
+      "known_traits": ["статус", "самоуверенность", "умение занимать внимание"],
+      "suspicions": [],
+      "positive_attention": ["часть старшего/заметного круга"],
+      "negative_attention": ["раздражает тех, кто не любит демонстративность"],
+      "rumor_hooks": ["крутится рядом с Райденом и Хару"]
+    },
+    "maren_voss": {
+      "public_reputation": "сильная студентка, давит телом и вызовом",
+      "known_traits": ["баскетбол", "силовой напор", "не боится публичного конфликта"],
+      "suspicions": [],
+      "positive_attention": ["уважение к силе"],
+      "negative_attention": ["её прямота раздражает"],
+      "rumor_hooks": ["не верит в легенду Райдена"]
+    },
+    "silas_rove": {
+      "public_reputation": "язвительный наблюдатель, который редко пачкает руки напрямую",
+      "known_traits": ["читает слабые места", "подталкивает конфликты", "умеет звучать невиновно"],
+      "suspicions": [],
+      "positive_attention": [],
+      "negative_attention": ["после его фраз рядом часто начинаются ссоры"],
+      "rumor_hooks": ["слишком много замечает"]
+    },
+    "roan_kell": {
+      "public_reputation": "крупный физический вес Третьего ряда",
+      "known_traits": ["устойчивый", "силовой", "идёт рядом с Марен и Сайласом"],
+      "suspicions": [],
+      "positive_attention": ["уважение к физической силе"],
+      "negative_attention": ["давит присутствием"],
+      "rumor_hooks": ["может первым отвести взгляд, а потом злиться на себя"]
+    },
+    "neya_valt": {
+      "public_reputation": "тихая девушка со скетчбуком, не силовой центр Академии",
+      "known_traits": ["наблюдательная", "рисует", "держится у края сцены"],
+      "suspicions": [],
+      "positive_attention": [],
+      "negative_attention": ["её рисунки могут быть слишком точными"],
+      "rumor_hooks": ["видит людей неприятно честно"]
+    }
+  }
+}
