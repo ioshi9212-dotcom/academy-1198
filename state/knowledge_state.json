@@ -1,0 +1,186 @@
+{
+  "schema": "knowledge_state_v1",
+  "project": "academy-1198",
+  "date": "1198-08-15",
+  "purpose": "Кто что знает, откуда знает и что не имеет права знать без сцены. Этот файл защищает сюжет от телепатии NPC и преждевременного раскрытия hidden lore.",
+  "rules": {
+    "npc_cannot_read_player_thoughts": true,
+    "knowledge_requires_source": true,
+    "suspicion_is_not_knowledge": true,
+    "hidden_lore_is_not_public_knowledge": true,
+    "update_after_reveal_or_witnessed_event": true,
+    "do_not_give_characters_repo_knowledge": true
+  },
+  "global_public_knowledge": {
+    "academy_exists": true,
+    "students_train_energy": true,
+    "rating_matters": true,
+    "eastern_sector_is_desired_by_strong_students": true,
+    "echo_are_dangerous": true,
+    "kairos_are_publicly_known_as_threat_or_enemy_category": true,
+    "samuel_sterling_is_high_status_commander": false,
+    "samuel_active_from": "1198-08-31"
+  },
+  "hidden_truths": {
+    "akira_true_nature": {
+      "truth": "Акира — скрытая аномальная точка/источник изменения баланса; масштаб её природы не раскрыт публично.",
+      "known_by": ["jun_carter", "ray_carter"],
+      "partly_known_by": ["akira"],
+      "unknown_to": ["raiden_sterling", "haru_foster", "livia_cross", "kir_knox", "samuel_sterling", "academy_students", "academy_instructors", "kairos"],
+      "source_ref": "canon/hidden_lore.md"
+    },
+    "akira_raiden_hidden_bond": {
+      "truth": "Акира и Райден связаны через скрытый цикл/повторяющиеся жизни.",
+      "known_by": [],
+      "partly_known_by": [],
+      "unknown_to": ["akira", "raiden_sterling", "haru_foster", "livia_cross", "kir_knox", "samuel_sterling", "jun_carter", "ray_carter", "academy_students", "academy_instructors"],
+      "source_ref": "canon/hidden_raiden_akira_bond.md",
+      "allowed_scene_manifestations": ["телесное узнавание", "раздражение сильнее обычного", "синхрон движения", "необъяснимое внимание", "короткий сбой дистанции"]
+    },
+    "raiden_hybrid_nature": {
+      "truth": "Райден имеет скрытую гибридную природу, которую сам не осознаёт.",
+      "known_by": [],
+      "partly_known_by": [],
+      "unknown_to": ["raiden_sterling", "akira", "haru_foster", "livia_cross", "kir_knox", "academy_students"],
+      "source_ref": "state/power_state.json"
+    },
+    "samuel_hidden_line": {
+      "truth": "Самуэль связан не только с публичным рейдовым направлением, но и со скрытым интересом к необычным носителям и кайросам.",
+      "known_by": ["samuel_sterling"],
+      "partly_known_by": [],
+      "unknown_to": ["akira", "raiden_sterling", "haru_foster", "livia_cross", "kir_knox", "academy_students", "most_academy_staff"],
+      "source_ref": "canon/sectors.md"
+    }
+  },
+  "character_knowledge": {
+    "akira": {
+      "knows": [
+        "Джун Картер — её отец в личной реальности Акиры",
+        "Ливия и Кир — знакомые/свои из школьного периода",
+        "она отличается от обычных студентов, но не знает полной природы себя"
+      ],
+      "does_not_know": [
+        "Джун ей приёмный отец",
+        "полную природу своей связи с Эхо/кайросами",
+        "связь с Райденом через цикл",
+        "скрытую линию Самуэля",
+        "истинную природу Райдена"
+      ],
+      "knowledge_sources": ["личная память", "семейная жизнь", "школьное прошлое"]
+    },
+    "livia_cross": {
+      "knows": [
+        "Акира странная, холодная и не любит лишний шум",
+        "Кир связан с их школьным прошлым",
+        "Ашер — её старая болезненная линия",
+        "Кай связан с неприятной историей Акиры"
+      ],
+      "does_not_know": [
+        "природу Акиры",
+        "hidden bond Акиры и Райдена",
+        "скрытую линию Самуэля",
+        "истинную природу Райдена"
+      ],
+      "knowledge_sources": ["школьное прошлое", "наблюдение за Акирой", "личный опыт с Ашером"]
+    },
+    "kir_knox": {
+      "knows": [
+        "Акира и Ливия — знакомые из прошлого",
+        "Акира не любит прямое давление",
+        "часть школьного фона Акиры"
+      ],
+      "does_not_know": [
+        "природу Акиры",
+        "hidden bond Акиры и Райдена",
+        "скрытую линию Самуэля"
+      ],
+      "knowledge_sources": ["школьное прошлое", "личные наблюдения"]
+    },
+    "raiden_sterling": {
+      "knows": [
+        "Хару — его ближайший друг",
+        "его семья имеет статус",
+        "Восточный сектор связан с его личным выбором",
+        "тема матери болезненна и связана с системой"
+      ],
+      "does_not_know": [
+        "свою скрытую гибридную природу",
+        "связь с Акирой через цикл",
+        "природу Акиры",
+        "полную скрытую линию Самуэля"
+      ],
+      "knowledge_sources": ["семья", "академия", "дружба с Хару", "собственный опыт"]
+    },
+    "haru_foster": {
+      "knows": [
+        "Райден — его ближайший друг",
+        "Райден плохо переносит вторжение в личное пространство",
+        "Академическая репутация важна",
+        "у него есть социальный вес и поклонницы"
+      ],
+      "does_not_know": [
+        "hidden bond Акиры и Райдена",
+        "природу Акиры",
+        "истинную природу Райдена",
+        "скрытую линию Самуэля"
+      ],
+      "knowledge_sources": ["дружба с Райденом", "академический опыт", "социальный круг"]
+    },
+    "samuel_sterling": {
+      "knows": [
+        "Райден — его брат",
+        "семейная и системная линия Райдена болезненна",
+        "рейдовые направления и отбор сильных носителей важны для системы"
+      ],
+      "does_not_know": [
+        "природу Акиры на старте",
+        "hidden bond Акиры и Райдена",
+        "точный источник изменения баланса"
+      ],
+      "may_suspect_later": [
+        "Акира слишком стабильна",
+        "показатели Акиры не сходятся",
+        "Райден реагирует на Акиру не как на обычного новичка"
+      ],
+      "knowledge_sources": ["служебное положение", "семья", "отчёты", "наблюдение после появления 31 августа"]
+    },
+    "kael_north": {
+      "knows": [
+        "студенты часто скрывают уровень",
+        "странное решение в проверке важнее эффектной силы"
+      ],
+      "does_not_know": [
+        "природу Акиры",
+        "hidden bond Акиры и Райдена",
+        "скрытую линию Самуэля"
+      ],
+      "may_suspect_later": ["Акира думает не как обычный новичок", "Райден и Акира слишком странно читают дистанцию"],
+      "knowledge_sources": ["инструкторское наблюдение", "результаты проверок"]
+    },
+    "eiren_vale": {
+      "knows": [
+        "больше, чем любой обычный персонаж, если сцена использует его hidden-роль"
+      ],
+      "does_not_know": [],
+      "hard_rule": "Эйрен не должен становиться обычным объясняющим NPC. Использовать только как скрытый слой Наблюдателя и осторожный намёк.",
+      "source_ref": "characters/hidden/eiren_vale.md"
+    }
+  },
+  "event_knowledge_log": [],
+  "pending_reveals": [
+    {
+      "id": "samuel_public_role_1198_08_31",
+      "date_or_condition": "1198-08-31",
+      "summary": "После появления Самуэля Академия узнаёт о его публичном рейдовом статусе и связи с направлением матери Райдена.",
+      "revealed_to": ["academy_students", "academy_staff"],
+      "not_revealed": ["hidden laboratory line", "true interest in Akira"]
+    },
+    {
+      "id": "asher_kai_return_1198_09_01",
+      "date_or_condition": "1198-09-01",
+      "summary": "Возвращение Ашера и Кая делает старые школьные связи видимыми для текущего социального круга только через реакции и слухи.",
+      "revealed_to": ["academy_social_circle"],
+      "not_revealed": ["полная внутренняя боль Ливии", "всё, что Акира чувствовала к Каю"]
+    }
+  ]
+}
