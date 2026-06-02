@@ -1,0 +1,119 @@
+{
+  "schema": "power_state_v1",
+  "project": "academy-1198",
+  "date": "1198-08-15",
+  "rules": {
+    "separate_public_and_true_level": true,
+    "hidden_power_not_public_knowledge": true,
+    "akira_hides_scale": true,
+    "raiden_does_not_know_hybrid_nature": true,
+    "energy_must_be_physical_when_used": true,
+    "update_after_tests_training_or_public_incidents": true
+  },
+  "characters": {
+    "akira": {
+      "energy_public": "не раскрыто / скрывает возможности",
+      "energy_true": "пространство / скрытая природа / источник изменения баланса",
+      "control_public": "кажется собранной, но уровень неясен",
+      "control_true": "стабильна, контролирует себя, скрывает масштаб",
+      "known_by": ["jun_carter", "ray_carter"],
+      "partly_known_by": ["akira"],
+      "unknown_to": ["raiden_sterling", "haru_foster", "livia_cross", "kir_knox", "samuel_sterling", "academy_students", "academy_instructors"],
+      "hidden_abilities": ["карман пространства", "пространственные проявления", "масштаб силы не измерен"],
+      "public_incidents": [],
+      "suspicion_hooks": ["слишком спокойный контроль", "несоответствие показателей", "слишком точная реакция тела"]
+    },
+    "livia_cross": {
+      "energy_public": "уточнить сценами",
+      "energy_true": "уточнить отдельной карточкой/сценой",
+      "control_public": "не раскрыто на старте",
+      "control_true": "не раскрыто на старте",
+      "known_by": [],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": []
+    },
+    "kir_knox": {
+      "energy_public": "ломающий ритм / импульс, уточнить карточкой Кира",
+      "energy_true": "уточнить по characters/main/kir_knox.md",
+      "control_public": "не до конца понятен окружающим",
+      "control_true": "сверять с карточкой Кира",
+      "known_by": ["akira", "livia_cross"],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["не принимает прямой темп", "не даёт красивого столкновения"]
+    },
+    "raiden_sterling": {
+      "energy_public": "холод / воздух",
+      "energy_true": "холод / воздух + скрытая гибридная природа",
+      "control_public": "сильный, дисциплинированный, опасный при раздражении",
+      "control_true": "высокий контроль, но эмоциональная нагрузка может давать иней/переохлаждение",
+      "known_by": [],
+      "partly_known_by": [],
+      "unknown_to": ["raiden_sterling", "akira", "haru_foster", "livia_cross", "kir_knox", "academy_students"],
+      "hidden_abilities": ["гибридная природа не осознана"],
+      "public_incidents": [],
+      "suspicion_hooks": ["пространство вокруг него холоднее", "при эмоциях может появляться иней", "жара раздражает"]
+    },
+    "haru_foster": {
+      "energy_public": "жар / огонь / тепло",
+      "energy_true": "жар / огонь / тепло",
+      "control_public": "сильный, живой, эмоциональный, но не бездумный",
+      "control_true": "контроль зависит от эмоций и ситуации",
+      "known_by": ["academy_students", "academy_instructors"],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["температура вокруг может расти при сильных чувствах"]
+    },
+    "maren_voss": {
+      "energy_public": "силовой напор / ударная масса",
+      "energy_true": "кинетическое давление через тело",
+      "control_public": "агрессивный темп, сильна в прямом столкновении",
+      "control_true": "эмоции усиливают напор, но ухудшают точность",
+      "known_by": ["academy_students"],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["тяжёлый удар по мячу", "шаг отдаёт вибрацией"]
+    },
+    "silas_rove": {
+      "energy_public": "сенсорный разбор / линии ошибки",
+      "energy_true": "видит повторяющиеся микропаттерны движения",
+      "control_public": "опаснее в команде, чем один",
+      "control_true": "плохо работает против хаотичных и ломающих ритм людей",
+      "known_by": ["academy_students"],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["заранее замечает повтор", "подсказывает, куда давить"]
+    },
+    "roan_kell": {
+      "energy_public": "костяной каркас / усиление структуры",
+      "energy_true": "укрепление тела, суставов, связок и устойчивости",
+      "control_public": "трудно сбить, хорошо держит линию",
+      "control_true": "предсказуем и тяжело разворачивается против быстрых противников",
+      "known_by": ["academy_students"],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["живой щит группы", "устойчивость выше обычной"]
+    },
+    "neya_valt": {
+      "energy_public": "контур / след образа",
+      "energy_true": "фиксирует визуальный след движения, жеста, маски и микропауз тела",
+      "control_public": "слабая или средне-низкая боевая полезность, сильна в наблюдении",
+      "control_true": "точность зависит от внимания, спокойствия и отсутствия публичного давления",
+      "known_by": [],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["рисунки выглядят слишком точными", "видит маску телом"]
+    },
+    "samuel_sterling": {
+      "energy_public": "уточнить",
+      "energy_true": "уточнить отдельно, не раскрывать без карточки/канона",
+      "control_public": "высокий статус, дисциплина, командный контроль",
+      "control_true": "опасен не только силой, но и системным влиянием",
+      "known_by": [],
+      "hidden_abilities": [],
+      "public_incidents": [],
+      "suspicion_hooks": ["замечает необычных носителей", "использует проверки как отбор"]
+    }
+  }
+}
