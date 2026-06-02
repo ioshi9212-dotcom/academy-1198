@@ -1,0 +1,519 @@
+{
+  "schema": "story_lines_v1",
+  "purpose": "Рабочая память событий по сюжетным линиям Академии Астрейн 1198. Хранит только события, отношения, знания, обязательства и будущие крючки; анкеты персонажей лежат в characters/.",
+  "rules": {
+    "no_one_scene_files": true,
+    "character_cards_are_source_for_personality": true,
+    "this_file_stores_only_events_relationships_knowledge_obligations": true,
+    "shared_event_written_once_then_referenced_by_lines": true,
+    "every_event_requires_absolute_date": true,
+    "relative_dates_must_be_calculated_from_current_state_date": true,
+    "story_is_planned_novel_chain_not_simulator": true,
+    "academy_is_training_system_not_morality_school": true,
+    "social_media_is_background_not_main_plot": true,
+    "do_not_write_every_day": true,
+    "skip_to_next_meaningful_event_if_player_skips_time": true
+  },
+  "calendar_policy": {
+    "date_format": "YYYY-MM-DD внутри данных, человекочитаемо в summary",
+    "relative_date_rules": {
+      "same_day": "сегодня / утром / днём / вечером, если дата совпадает",
+      "one_day_ago": "вчера",
+      "two_days_ago": "позавчера / два дня назад",
+      "three_to_six_days_ago": "несколько дней назад / N дней назад",
+      "seven_days_ago": "неделю назад",
+      "more_than_seven_days_ago": "называть точную дату или период"
+    },
+    "hard_rule": "Персонажи не должны говорить 'вчера' про событие, если между current_state.date и event.date прошло больше одного дня."
+  },
+  "turn_counter": {
+    "total_game_turns": 0,
+    "since_last_compaction": 0,
+    "compact_every_turns": 15,
+    "last_compaction_turn": 0,
+    "last_compaction_date": null,
+    "last_compaction_note": null,
+    "technical_turns_do_not_count": true
+  },
+  "narrative_policy": {
+    "mode": "сюжетная новелла с управляемой Акирой, не песочница и не симулятор быта",
+    "goal": "вести логичную цепочку интересных событий между уже существующими персонажами, постепенно заполняя жизнь Акиры людьми, конфликтами, тренировками, репутацией, рейтингом, обещаниями и последствиями",
+    "scene_priority": [
+      "развитие персонажных линий",
+      "тренировки / энергия / техника / рейтинг",
+      "социальные последствия и репутация",
+      "конфликты и обещания",
+      "будущие сюжетные крючки"
+    ],
+    "avoid": [
+      "пустой быт без последствий",
+      "моральные уроки под каждую личную проблему",
+      "соцсети как главная тема сцены",
+      "случайные NPC вместо подходящих main/supporting персонажей",
+      "ежедневное расписание без смысла"
+    ]
+  },
+  "next_beats": {
+    "purpose": "Мини-план ближайших сюжетных крючков. Использовать как напоминание, а не как жёсткий сценарий.",
+    "rules": {
+      "keep_3_to_7_active_beats": false,
+      "can_keep_more_for_arc_planning": true,
+      "each_beat_has_date_or_condition": true,
+      "do_not_force_if_scene_context_changed": true,
+      "if_due_then_show_or_explain_delay": true,
+      "remove_or_compact_after_resolved": true
+    },
+    "active": [
+      {
+        "beat_id": "arrival_registration_1198_08_15",
+        "date_or_condition": "1198-08-15 / прибытие к Академии",
+        "related_ids": ["akira", "livia_cross", "kir_knox", "haru_foster", "raiden_sterling", "kiara_volt"],
+        "summary": "Акира, Ливия и Кир прибывают к Академии в обычной одежде. Регистрация, выдача формы, короткий медосмотр, инструктаж и заселение. Акира и Ливия получают комнату на 2 этаже. Хару появляется в первый день, если Акира не закрылась в комнате. Райден и Киара могут появиться фоном рядом с его кругом.",
+        "expected_effects": ["старт социального шума", "первый взгляд на белые волосы Акиры", "Акира и Ливия закреплены как соседки", "Хару входит как первый живой социальный мост"],
+        "priority": "critical",
+        "status": "open"
+      },
+      {
+        "beat_id": "physical_energy_check_1198_08_16",
+        "date_or_condition": "1198-08-16 / физблок и первичные проверки энергии",
+        "related_ids": ["akira", "livia_cross", "kir_knox", "elias_aster", "seline_aster", "veronica_ellard", "kael_north"],
+        "summary": "Первый физический блок и первичное определение/уточнение типа энергии. Появляются двойняшки Астер: Эльяс и Селин. Вероника может впервые заметить Акиру как рейтинговую помеху. Каэл фиксирует странность мышления Акиры, но не понимает масштаба.",
+        "expected_effects": ["первые рейтинговые заметки", "первое ощущение странности Астеров", "Акира скрывает масштаб", "Каэл начинает наблюдать"],
+        "priority": "critical",
+        "status": "open"
+      },
+      {
+        "beat_id": "basketball_third_row_1198_08_17",
+        "date_or_condition": "1198-08-17 / баскетбольная площадка",
+        "related_ids": ["akira", "livia_cross", "kir_knox", "haru_foster", "raiden_sterling", "kiara_volt", "maren_voss", "silas_rove", "roan_kell"],
+        "summary": "Хару и Райден оказываются на баскетбольной площадке как привычная связка. Впервые появляется 'Третий ряд': Марен, Сайлас и Роан. Марен использует площадку как публичный вызов Райдену, Сайлас добавляет репутационный яд, Роан создаёт физическое давление. Акира видит, что баскетбол в Академии — социальная арена.",
+        "expected_effects": ["первое появление Третьего ряда", "давление на Райдена и Хару", "баскетбол закрепляется как социальная площадка", "Марен может заинтересоваться Акирой"],
+        "priority": "high",
+        "status": "open"
+      },
+      {
+        "beat_id": "akira_raiden_opponent_check_1198_08_18",
+        "date_or_condition": "1198-08-18 / учебная проверка, безопасное оружие или ограниченная энергия",
+        "related_ids": ["akira", "raiden_sterling", "haru_foster", "livia_cross", "kael_north"],
+        "summary": "Академия ставит Акиру и Райдена друг против друга как часть обычного смешивания студентов. Это не личный вызов и не наказание, а проверка контроля, дистанции и реакции.",
+        "expected_effects": ["напряжение", "раздражение", "взаимная проверка", "инструкторская пометка", "зацепка для будущего синхрона"],
+        "priority": "high",
+        "status": "open"
+      },
+      {
+        "beat_id": "akira_raiden_sync_pair_1198_08_20",
+        "date_or_condition": "1198-08-20 / парная проверка, синхрон, командная реакция",
+        "related_ids": ["akira", "raiden_sterling", "haru_foster", "livia_cross", "kael_north"],
+        "summary": "После проверки друг против друга Академия ставит Акиру и Райдена в пару; они раздражаются, но неожиданно читают ритм, дистанцию или движение друг друга.",
+        "expected_effects": ["вынужденный синхрон", "раздражение из-за совпадения", "наблюдение Хару", "внимание Ливии", "репутационный шум"],
+        "priority": "high",
+        "status": "open"
+      },
+      {
+        "beat_id": "livia_pulls_akira_out_1198_08_22",
+        "date_or_condition": "1198-08-22 evening / свободное время после учебного блока",
+        "related_ids": ["akira", "livia_cross", "haru_foster", "kiara_volt"],
+        "summary": "Ливия пытается вытащить Акиру куда-нибудь: студенческий вечер, музыкальный зал, караоке, танцы, разрешённая вылазка или поздняя столовая. Киара может оказаться рядом и усилить социальную конкуренцию внимания.",
+        "expected_effects": ["самостоятельная инициатива Ливии", "социальная сцена", "возможный конфликт/флирт", "выбор Акиры влияет на динамику"],
+        "priority": "medium",
+        "status": "open"
+      },
+      {
+        "beat_id": "neya_haru_drawing_thread_1198_08_26",
+        "date_or_condition": "1198-08-26 / тренировочный корпус, библиотека или ожидание малых групп",
+        "related_ids": ["akira", "livia_cross", "haru_foster", "neya_valt"],
+        "summary": "Нэя Вальт появляется через рисунок, наблюдение или сцену публичного высмеивания личного рисунка Хару. Хару может затупить или сгладить неудачно. Акира получает выбор: вмешаться, промолчать, посмотреть на Хару или ударить словом по ситуации.",
+        "expected_effects": ["Хару раскрывается как неидеальный", "Нэя закрепляется как тихий наблюдатель", "Акира получает морально острый выбор", "Ливия видит другую форму уязвимости"],
+        "priority": "medium",
+        "status": "open"
+      },
+      {
+        "beat_id": "raiden_birthday_samuel_1198_08_31",
+        "date_or_condition": "1198-08-31 / день рождения Райдена и появление Самуэля",
+        "related_ids": ["raiden_sterling", "samuel_sterling", "haru_foster", "akira", "livia_cross"],
+        "summary": "Райдену исполняется 18. Самуэль появляется как системная фигура и принимает направление, связанное с подразделением матери Райдена. Это усиливает семейное давление и конфликт между Восточным сектором и навязанным семейным маршрутом.",
+        "expected_effects": ["Райден холоднее обычного", "Самуэль входит в активный сюжет", "Акира может стать свидетелем напряжения", "Самуэль начинает замечать Акиру"],
+        "priority": "critical",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "asher_kai_return_to_academy_1198_09_01",
+        "date_or_condition": "1198-09-01 / начало сентябрьского учебного блока, возвращение части старших студентов",
+        "related_ids": ["akira", "livia_cross", "asher_lane", "kai_renwick", "haru_foster", "raiden_sterling"],
+        "summary": "Ашер Лейн и Кай Ренвик возвращаются к обучению после отсутствия в августе. Их совместное появление вскрывает две разные школьные раны: Ашер — для Ливии, Кай — для Акиры.",
+        "expected_effects": ["старая боль Ливии", "старая закрытая реакция Акиры", "социальное напряжение", "возможный фон Слепой зоны", "наблюдение Хару/Райдена"],
+        "priority": "high",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "rating_board_veronica_1198_09_04",
+        "date_or_condition": "1198-09-04 / обновление рейтинга",
+        "related_ids": ["akira", "veronica_ellard", "maren_voss", "silas_rove", "kael_north"],
+        "summary": "После августовских проверок обновляется рейтинговая доска. Вероника публично замечает Акиру как раздражающую неправильность. Сайлас может добавить полуправду, Марен — использовать рейтинг как повод для нового вызова.",
+        "expected_effects": ["Вероника открывает соперничество", "репутация Акиры усиливается", "рейтинг становится живым конфликтом"],
+        "priority": "medium",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "training_field_trip_1198_09_07",
+        "date_or_condition": "1198-09-07 / выездной учебный полигон",
+        "related_ids": ["akira", "livia_cross", "kir_knox", "raiden_sterling", "haru_foster", "daniel_dante_weiss", "neya_valt", "kael_north"],
+        "summary": "Первый пробный выезд на внешний учебный полигон: ориентация, контроль зоны, связь, эвакуация. Это ещё не настоящий рейд, но фон уже опаснее кампуса. Данте и Нэя могут быть полезны наблюдением, а не грубой силой.",
+        "expected_effects": ["Акира скрывает масштаб", "Ливия получает шанс быть участником группы", "Хару и Райден работают как привычная связка", "Каэл смотрит на решения"],
+        "priority": "high",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "aster_wrongness_review_1198_09_11",
+        "date_or_condition": "1198-09-11 / разбор после полигона",
+        "related_ids": ["akira", "elias_aster", "seline_aster", "raiden_sterling", "kael_north"],
+        "summary": "Разбор после полигона. Эльяс и Селин могут тихо заметить странность Акиры, но не понять её. Райден раздражается, что Акира снова не укладывается в объяснение.",
+        "expected_effects": ["Астеры закрепляются как странный наблюдательный узел", "Райден усиливает внимание", "Акира получает повод держаться суше или ударить точнее"],
+        "priority": "medium",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "water_block_noa_1198_09_14",
+        "date_or_condition": "1198-09-14 / бассейн или водный блок",
+        "related_ids": ["akira", "noa_rian", "raiden_sterling", "haru_foster", "livia_cross", "kir_knox"],
+        "summary": "Учебный блок в воде: дыхание, паника, ориентация, контроль. Холод Райдена становится опасным фактором, Хару не может решить всё жаром. Ноа может впервые проявиться заметнее как тихий защитный персонаж.",
+        "expected_effects": ["Ноа проявляется силой защиты", "Райден держит контроль точнее обычного", "Акира видит, что мягкость не равна слабости"],
+        "priority": "medium",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "night_training_signal_1198_09_18",
+        "date_or_condition": "1198-09-18 / ночной учебный сигнал",
+        "related_ids": ["akira", "kael_north", "maren_voss", "silas_rove", "roan_kell", "livia_cross"],
+        "summary": "Ночной учебный сигнал поднимает выбранные группы. Задача — быстро собраться, добраться до точки и не потерять напарника. Акира действует слишком спокойно для новичка. Марен, Сайлас или Роан могут впервые дать сбой не в словах, а в действиях.",
+        "expected_effects": ["Каэл замечает взрослую реакцию Акиры", "Третий ряд получает некомфортную проверку", "репутационный шум меняет оттенок"],
+        "priority": "high",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "public_showcase_block_1198_09_22",
+        "date_or_condition": "1198-09-22 / публичный показательный блок",
+        "related_ids": ["akira", "raiden_sterling", "haru_foster", "veronica_ellard", "kiara_volt", "maren_voss", "elias_aster", "seline_aster", "samuel_sterling"],
+        "summary": "Показательные спарринги или связки перед курсом. Вероника давит на превосходство, Киара — на внимание, Марен — на физический вызов, Астеры — на тихий дискомфорт. Самуэль может наблюдать неофициально или через отчёт.",
+        "expected_effects": ["Акира выбирает степень сдержанности", "Райден видит больше, чем хотел", "Хару пытается защитить лёгкостью", "репутация Акиры резко меняется"],
+        "priority": "high",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "almost_real_raid_1198_09_26",
+        "date_or_condition": "1198-09-26 / учебный выезд, который идёт не по плану",
+        "related_ids": ["akira", "raiden_sterling", "haru_foster", "livia_cross", "daniel_dante_weiss", "neya_valt", "noa_rian", "kael_north", "samuel_sterling"],
+        "summary": "Контролируемый учебный выезд сталкивается с нестабильностью, аномальным следом или ложным контактом с Эхо. Это не раскрытие всего лора, но достаточно, чтобы стало страшно. Оружие почти бесполезно без энергии и связки.",
+        "expected_effects": ["Акира может спасти ситуацию слишком точным решением", "Райден реагирует телом раньше мысли", "Хару перестаёт шутить", "Ливия получает настоящую проверку страха", "Каэл и Самуэль получают разные причины заинтересоваться Акирой"],
+        "priority": "critical",
+        "status": "scheduled"
+      },
+      {
+        "beat_id": "september_consequences_1198_09_30",
+        "date_or_condition": "1198-09-30 / пересчёт месяца",
+        "related_ids": ["akira", "livia_cross", "raiden_sterling", "haru_foster", "samuel_sterling", "kael_north"],
+        "summary": "Конец месяца: рейтинговый пересчёт, изменения допусков, закрепление слухов и перенос открытых линий в октябрь.",
+        "expected_effects": ["Акира становится заметной", "Райден и Акира проходят путь от противников к странной реакции в угрозе", "Хару получает линию тепла и вины", "Ливия несёт ревность и старые раны", "Самуэль фиксирует интерес к Акире"],
+        "priority": "high",
+        "status": "scheduled"
+      }
+    ],
+    "resolved": []
+  },
+  "daily_timeline": {
+    "1198-08-15": [
+      {
+        "event_id": "arrival_registration_1198_08_15",
+        "time": "день / прибытие",
+        "location": "Академия Астрейн, входная зона, регистрационный корпус, общежитие новичков",
+        "summary": "Акира, Ливия и Кир приходят в Академию в обычной одежде. Проходят регистрацию, получают форму, короткий медосмотр, инструктаж и заселение. Акира и Ливия получают комнату на 2 этаже. Хару может впервые появиться как живой социальный мост, если Акира не закрылась в комнате.",
+        "participants": ["akira", "livia_cross", "kir_knox"],
+        "possible_witnesses": ["haru_foster", "raiden_sterling", "kiara_volt"],
+        "line_refs": ["line_academy", "line_livia", "line_kir", "line_haru", "line_reputation"]
+      }
+    ],
+    "1198-08-16": [
+      {
+        "event_id": "physical_energy_check_1198_08_16",
+        "time": "учебный день",
+        "location": "физический блок / корпус энергетической практики",
+        "summary": "Физблок, первичные проверки и уточнение типов энергии. Впервые появляются Эльяс и Селин Астер. Каэл Норт и Вероника могут заметить Акиру по разным причинам.",
+        "participants": ["akira", "livia_cross", "kir_knox", "elias_aster", "seline_aster"],
+        "possible_witnesses": ["kael_north", "veronica_ellard"],
+        "line_refs": ["line_rating", "line_academy", "line_aster_twins", "line_veronica"]
+      }
+    ],
+    "1198-08-17": [
+      {
+        "event_id": "basketball_third_row_1198_08_17",
+        "time": "после учебного блока / свободное время",
+        "location": "баскетбольная площадка или спортзал",
+        "summary": "Хару и Райден играют или появляются на баскетбольной площадке как привычная связка. Впервые появляются Марен, Сайлас и Роан. Баскетбол закрепляется как социальная арена, а не просто спорт.",
+        "participants": ["haru_foster", "raiden_sterling", "maren_voss", "silas_rove", "roan_kell"],
+        "possible_witnesses": ["akira", "livia_cross", "kir_knox", "kiara_volt"],
+        "line_refs": ["line_haru", "line_raiden", "line_third_row", "line_reputation"]
+      }
+    ],
+    "1198-08-18": [
+      {
+        "event_id": "akira_raiden_opponent_check_1198_08_18",
+        "time": "учебная проверка",
+        "location": "тренировочный зал / боевой блок",
+        "summary": "Академия ставит Акиру и Райдена друг против друга в учебном формате. Это не личный вызов, а проверка контроля, дистанции и реакции.",
+        "participants": ["akira", "raiden_sterling"],
+        "possible_witnesses": ["haru_foster", "livia_cross", "kael_north"],
+        "line_refs": ["line_akira_raiden", "line_rating", "line_reputation"]
+      }
+    ],
+    "1198-08-20": [
+      {
+        "event_id": "akira_raiden_sync_pair_1198_08_20",
+        "time": "учебная проверка",
+        "location": "тренировочный блок",
+        "summary": "Акиру и Райдена ставят в пару после проверки друг против друга. Они раздражаются, но неожиданно читают ритм и дистанцию друг друга.",
+        "participants": ["akira", "raiden_sterling"],
+        "possible_witnesses": ["haru_foster", "livia_cross", "kael_north"],
+        "line_refs": ["line_akira_raiden", "line_rating", "line_reputation"]
+      }
+    ],
+    "1198-08-22": [
+      {
+        "event_id": "livia_pulls_akira_out_1198_08_22",
+        "time": "вечер",
+        "location": "свободная зона Академии или разрешённая вылазка",
+        "summary": "Ливия вытаскивает Акиру из учебного режима в живую социальную сцену. Киара и Хару могут пересечься с ними через внимание, флирт или конфликт.",
+        "participants": ["akira", "livia_cross"],
+        "possible_witnesses": ["haru_foster", "kiara_volt"],
+        "line_refs": ["line_livia", "line_haru", "line_kiara", "line_social"]
+      }
+    ],
+    "1198-08-26": [
+      {
+        "event_id": "neya_haru_drawing_thread_1198_08_26",
+        "time": "день / ожидание групп или свободное время",
+        "location": "тренировочный корпус, библиотека или коридор у малых групп",
+        "summary": "Нэя Вальт появляется через рисунок Хару и сцену публичного высмеивания личного наблюдения. Это крючок для Акиры и проверка Хару на неидеальность.",
+        "participants": ["neya_valt", "haru_foster"],
+        "possible_witnesses": ["akira", "livia_cross", "kir_knox"],
+        "line_refs": ["line_neya", "line_haru", "line_akira_choices", "line_reputation"]
+      }
+    ],
+    "1198-08-31": [
+      {
+        "event_id": "raiden_birthday_samuel_1198_08_31",
+        "time": "день / вечер",
+        "location": "Академия Астрейн / административный корпус / публичная зона",
+        "summary": "День рождения Райдена. Самуэль появляется как системная фигура и принимает направление, связанное с подразделением матери Райдена, усиливая семейное давление.",
+        "participants": ["raiden_sterling", "samuel_sterling"],
+        "possible_witnesses": ["haru_foster", "akira", "livia_cross"],
+        "line_refs": ["line_raiden", "line_samuel", "line_akira_raiden", "line_academy"]
+      }
+    ],
+    "1198-09-01": [
+      {
+        "event_id": "asher_kai_return_to_academy_1198_09_01",
+        "time": "начало учебного дня / возвращение старших студентов",
+        "location": "Академия Астрейн, активный кампус",
+        "summary": "Ашер Лейн и Кай Ренвик возвращаются к обучению вместе с частью старших студентов. В августе их не было в общежитии и активном кампусе.",
+        "participants": ["asher_lane", "kai_renwick"],
+        "possible_witnesses": ["akira", "livia_cross", "haru_foster", "raiden_sterling"],
+        "line_refs": ["line_livia", "line_akira_school_past", "line_asher", "line_kai", "line_social_media_rumors", "line_reputation"]
+      }
+    ]
+  },
+  "shared_events": [
+    {
+      "event_id": "asher_kai_absent_august_return_sep1_1198",
+      "date": "1198-09-01",
+      "time": "начало сентябрьского учебного блока",
+      "location": "Академия Астрейн",
+      "participants": ["asher_lane", "kai_renwick"],
+      "summary": "Ашер Лейн и Кай Ренвик отсутствовали в августовских активных сценах Академии, потому что были дома/вне кампуса, а 1 сентября возвращаются к обучению вместе с частью старших студентов.",
+      "known_by": ["asher_lane", "kai_renwick"],
+      "consequences": ["их нельзя вставлять в августовские общежитейские сцены задним числом", "их первое актуальное появление в Академии запланировано на 1 сентября"],
+      "line_refs": ["line_asher", "line_kai", "line_academy", "line_reputation"]
+    }
+  ],
+  "lines": {
+    "line_academy": {
+      "title": "Академия",
+      "character_ids": [],
+      "related_ids": ["akira", "livia_cross", "kir_knox", "haru_foster", "raiden_sterling", "kael_north", "samuel_sterling"],
+      "current_summary": "Август начинается с прибытия новичков, первичных проверок и социальных узлов. Сентябрь усиливает расписание, рейтинги, выезды и возвращение старших студентов.",
+      "events": [],
+      "schedule_updates": ["1198-08-15 — прибытие Акиры, Ливии и Кира", "1198-08-16 — физблок и первичные проверки", "1198-08-18 — учебный спарринг Акиры и Райдена", "1198-09-01 — возвращение части старших студентов, включая Ашера и Кая"],
+      "open_threads": ["Академия должна двигать сюжет через проверки, рейтинг, выезды и социальное давление, а не ежедневный быт."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_akira_raiden": {
+      "title": "Акира и Райден",
+      "character_ids": ["akira", "raiden_sterling"],
+      "related_ids": ["haru_foster", "livia_cross", "kael_north", "samuel_sterling"],
+      "current_summary": "Их ранняя линия строится через учебный спарринг 18 августа, вынужденный синхрон 20 августа и дальнейшие странные реакции без прямого раскрытия связи.",
+      "events": [],
+      "open_threads": ["18 августа — учебная проверка друг против друга.", "20 августа — парная проверка на синхрон.", "31 августа — напряжение Райдена через Самуэля может быть замечено Акирой."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_haru": {
+      "title": "Хару",
+      "character_ids": ["haru_foster"],
+      "related_ids": ["akira", "raiden_sterling", "livia_cross", "neya_valt", "maren_voss", "samuel_sterling"],
+      "current_summary": "Хару входит 15 августа как первый социальный мост, 17 августа раскрывается через баскетбол и связку с Райденом, 26 августа получает неидеальную линию через Нэю.",
+      "events": [],
+      "open_threads": ["Хару и Райден должны ощущаться друзьями с детства.", "Нэя показывает, что тепло Хару может ранить не со зла."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_livia": {
+      "title": "Ливия",
+      "character_ids": ["livia_cross"],
+      "related_ids": ["akira", "haru_foster", "raiden_sterling", "kiara_volt", "asher_lane", "kai_renwick", "maren_voss", "neya_valt"],
+      "current_summary": "Ливия — соседка Акиры и школьная подруга, заселяется с ней на 2 этаже. Её августовская линия идёт через поддержку Акиры, интерес к компании Хару/Райдена, раздражение на Киару/Марен и попытку вытащить Акиру 22 августа.",
+      "events": [
+        {
+          "event_id": "livia_asher_school_past_fixed",
+          "date": "pre-1198",
+          "summary": "Ливия сама ушла от Ашера после серии обесцениваний, но у неё осталось чувство, что её выбирали только тогда, когда никто не смотрит.",
+          "effect": "объясняет её демонстративность, громкий флирт, страх быть неофициальной и будущий триггер при встрече 1 сентября"
+        }
+      ],
+      "knowledge_updates": ["Ливия знает Ашера как бывшего; знает Кая как человека, подставившего Акиру; не знает, что Кай мог быть Акире чуть интересен."],
+      "open_threads": ["1 сентября Ашер возвращается и может вскрыть старую боль Ливии.", "Кай может включить защитную реакцию Ливии за Акиру."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_kir": {
+      "title": "Кир",
+      "character_ids": ["kir_knox"],
+      "related_ids": ["akira", "livia_cross", "maren_voss", "silas_rove", "roan_kell", "neya_valt"],
+      "current_summary": "Кир прибывает вместе с Акирой и Ливией 15 августа. Его ритм и импульс неудобны для Марен, Сайласа и Роана; Нэя может видеть его слишком точно.",
+      "events": [],
+      "open_threads": ["Кир не должен исчезать после прибытия: использовать его как старого друга/живую тревожную точку рядом с Акирой и Ливией."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_aster_twins": {
+      "title": "Эльяс и Селин Астер",
+      "character_ids": ["elias_aster", "seline_aster"],
+      "related_ids": ["akira", "raiden_sterling", "haru_foster", "kael_north"],
+      "current_summary": "Эльяс и Селин впервые появляются 16 августа во время физблока/проверок. Они создают ощущение странности, но не раскрывают hidden lore.",
+      "events": [],
+      "open_threads": ["11 сентября после выездного полигона Астеры могут тихо заметить странность Акиры, не понимая её природы."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_third_row": {
+      "title": "Третий ряд",
+      "character_ids": ["maren_voss", "silas_rove", "roan_kell"],
+      "related_ids": ["raiden_sterling", "haru_foster", "akira", "livia_cross", "kir_knox"],
+      "current_summary": "Марен, Сайлас и Роан впервые появляются 17 августа на баскетбольной площадке. Их функция — физическое, социальное и репутационное давление вокруг Райдена, Хару и позже Акиры.",
+      "events": [],
+      "open_threads": ["Марен давит вызовом и телом.", "Сайлас формулирует яд и полуправды.", "Роан создаёт вес группы и может позже сомневаться, если они перегнули."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_neya": {
+      "title": "Нэя Вальт",
+      "character_ids": ["neya_valt"],
+      "related_ids": ["haru_foster", "akira", "livia_cross", "kir_knox"],
+      "current_summary": "Нэя — тихая студентка, связанная с неясной прошлой близостью Хару. Её линия раскрывает, что тепло Хару может ранить не со зла. Главный крючок — рисунок Хару и публичное высмеивание личного наблюдения.",
+      "events": [],
+      "open_threads": ["26 августа — сцена рисунка Хару и реакция Акиры/Хару.", "Нэя может позже нарисовать Акиру или Ливию слишком точно."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_asher": {
+      "title": "Ашер Лейн",
+      "character_ids": ["asher_lane"],
+      "related_ids": ["livia_cross", "akira", "kai_renwick", "haru_foster", "raiden_sterling"],
+      "current_summary": "Ашер — бывший Ливии из школы; в августе отсутствует в активном кампусе, возвращается 1 сентября.",
+      "events": [
+        {
+          "event_id": "asher_absent_august_return_sep1_1198",
+          "date": "1198-09-01",
+          "summary": "Ашер отсутствовал в августе в активном кампусе/общежитии, потому что был дома/вне кампуса, и возвращается к обучению 1 сентября.",
+          "effect": "его нельзя использовать в августовских сценах задним числом; первое актуальное появление — сентябрь"
+        }
+      ],
+      "open_threads": ["1 сентября Ашер может обратиться к Ливии слишком знакомо и включить её старую боль."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_kai": {
+      "title": "Кай Ренвик",
+      "character_ids": ["kai_renwick"],
+      "related_ids": ["akira", "livia_cross", "asher_lane", "haru_foster", "raiden_sterling"],
+      "current_summary": "Кай — школьная неприятная история Акиры; в августе отсутствует в активном кампусе, возвращается 1 сентября.",
+      "events": [
+        {
+          "event_id": "kai_absent_august_return_sep1_1198",
+          "date": "1198-09-01",
+          "summary": "Кай отсутствовал в августе в активном кампусе/общежитии, потому что был дома/вне кампуса, и возвращается к обучению 1 сентября.",
+          "effect": "его нельзя использовать в августовских сценах задним числом; первое актуальное появление — сентябрь"
+        }
+      ],
+      "open_threads": ["1 сентября Кай может впервые столкнуться с Акирой после школьной истории.", "Ливия может резко вмешаться, не зная, что реакция Акиры глубже."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_rating": {
+      "title": "Рейтинг и классы Академии",
+      "character_ids": [],
+      "related_ids": ["akira", "livia_cross", "haru_foster", "raiden_sterling", "veronica_ellard", "kael_north", "asher_lane", "kai_renwick", "maren_voss"],
+      "current_summary": "Рейтинг начинает работать с 16 августа через физблок и проверки, 18 августа через учебный спарринг, 4 сентября через публичную доску.",
+      "events": [],
+      "rating_updates": [],
+      "class_updates": [],
+      "exam_results": [],
+      "training_access": [],
+      "open_threads": ["4 сентября рейтинг должен стать публичным конфликтом через Веронику, Марен или Сайласа."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_reputation": {
+      "title": "Репутация",
+      "character_ids": [],
+      "related_ids": ["akira", "livia_cross", "haru_foster", "raiden_sterling", "kiara_volt", "veronica_ellard", "maren_voss", "silas_rove", "asher_lane", "kai_renwick"],
+      "current_summary": "Репутация Акиры начинает расти с белых волос, проверок, баскетбольной площадки, спарринга с Райденом и реакции окружающих.",
+      "events": [],
+      "group_reactions": [],
+      "reputation_updates": [],
+      "open_threads": ["Старый школьный канал 'Слепая зона' может всплыть после возвращения Ашера и Кая 1 сентября.", "Третий ряд создаёт репутационный шум вокруг Райдена, Хару и Акиры."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_social_media_rumors": {
+      "title": "Соцсети и слухи",
+      "character_ids": [],
+      "related_ids": ["akira", "livia_cross", "kiara_volt", "asher_lane", "kai_renwick", "silas_rove"],
+      "current_summary": "Соцсети и слухи существуют как фон, а не главная линия. Старый канал 'Слепая зона' может всплыть после 1 сентября.",
+      "events": [
+        {
+          "event_id": "blind_zone_school_channel_backstory",
+          "date": "pre-1198",
+          "summary": "В школьном закрытом канале 'Слепая зона' когда-то появилась история 'Ставка закрыта', где приход Акиры на встречу с Каем превратили в ставку/насмешку.",
+          "effect": "фон для будущего социального давления; не главная линия по умолчанию"
+        }
+      ],
+      "channels": ["Слепая зона"],
+      "rumor_updates": [],
+      "daily_background_ping": [],
+      "open_threads": ["После 1 сентября старые скрины/слухи могут всплыть через социальный круг, Киару, поклонниц Хару или общий студенческий фон."],
+      "compacted_summary": "",
+      "compacted_history": []
+    },
+    "line_obligations": {
+      "title": "Ставки, долги, обещания",
+      "character_ids": [],
+      "related_ids": ["akira", "haru_foster", "kai_renwick", "maren_voss"],
+      "current_summary": "Пока открытых долгов нет; будущие ставки/баскетбольные вызовы/кофе фиксировать здесь с датой.",
+      "events": [],
+      "open_obligations": [],
+      "completed_obligations": [],
+      "compacted_summary": "",
+      "compacted_history": []
+    }
+  }
+}
