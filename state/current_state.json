@@ -1,0 +1,99 @@
+{
+  "schema": "current_state_v1",
+  "project": "academy-1198",
+  "session_id": "academy_1198_start",
+  "runtime": {
+    "platform": "Railway",
+    "persistent_storage": "Railway Volume",
+    "state_storage_policy": "state files are runtime-writable and must be persisted to the mounted volume in production",
+    "repository_policy": "repository stores canon, templates and starter state only; live runtime state should be copied to Railway Volume and updated there",
+    "secret_policy": "do not store runtime secrets in repository; use Railway environment configuration"
+  },
+  "date": "1198-08-15",
+  "time_of_day": "day",
+  "calendar_ref": "canon/calendar_1198.md",
+  "timeline_ref": "canon/timeline_1198_1206.md",
+  "location": {
+    "place_id": "academy_astrain_entrance",
+    "name": "входная зона Академии Астрейн",
+    "area": "перед регистрационным корпусом",
+    "visibility": "public",
+    "notes": "стартовая сцена: Акира, Ливия и Кир появляются возле Академии в обычной одежде"
+  },
+  "scene": {
+    "scene_id": "arrival_registration_1198_08_15",
+    "phase": "start",
+    "status": "ready",
+    "must_not_skip": [
+      "регистрация",
+      "выдача формы",
+      "короткий медосмотр",
+      "инструктаж",
+      "заселение Акиры и Ливии в комнату на 2 этаже"
+    ],
+    "first_day_possible_contacts": [
+      "haru_foster",
+      "raiden_sterling",
+      "kiara_volt"
+    ],
+    "hard_rule": "Не писать за игрока решения, эмоции и реплики Акиры. Игрок управляет Акирой."
+  },
+  "active_characters": [
+    "akira",
+    "livia_cross",
+    "kir_knox"
+  ],
+  "nearby_or_possible": [
+    "haru_foster",
+    "raiden_sterling",
+    "kiara_volt",
+    "registration_staff"
+  ],
+  "player_character": {
+    "id": "akira",
+    "name": "Акира Картер",
+    "age": 17,
+    "current_behavior_profile": "characters/variants/akira_default_cold.md",
+    "conditional_behavior_profile": "characters/variants/akira_post_kai_chaotic_mask.md",
+    "appearance_markers": [
+      "белые волосы",
+      "спокойное лицо",
+      "холодный/ровный взгляд",
+      "собранная дистанция"
+    ],
+    "public_status": "новичок Академии Астрейн",
+    "hidden_status": "скрытая аномалия, природа не раскрыта",
+    "current_clothes": "обычная одежда до выдачи формы",
+    "room_assignment": {
+      "status": "not_yet_completed",
+      "planned_roommate": "livia_cross",
+      "planned_floor": 2
+    }
+  },
+  "continuity": {
+    "last_completed_scene_id": null,
+    "last_completed_date": null,
+    "next_required_beat": "arrival_registration_1198_08_15",
+    "story_lines_ref": "state/story_lines.json",
+    "relationships_ref": "state/relationships.json",
+    "reputation_ref": "state/reputation_state.json",
+    "power_ref": "state/power_state.json",
+    "knowledge_ref": "state/knowledge_state.json"
+  },
+  "loading_policy": {
+    "before_scene_load": [
+      "canon/source_usage_rules.md",
+      "canon/calendar_1198.md",
+      "state/current_state.json",
+      "state/story_lines.json",
+      "characters/character_id_index.md",
+      "active character cards only"
+    ],
+    "load_hidden_only_if_needed": [
+      "canon/hidden_lore.md",
+      "canon/hidden_raiden_akira_bond.md",
+      "characters/hidden/eiren_vale.md"
+    ],
+    "do_not_load_everything_by_default": true
+  }
+}
