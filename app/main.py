@@ -48,6 +48,7 @@ CHARACTER_PATHS = {
 
 BASE_CONTEXT_FILES = [
     "gpt/engine_prompt.md",
+    "gpt/scene_format.md",
     "canon/source_usage_rules.md",
     "canon/calendar_1198.md",
     "canon/timeline_1198_1206.md",
