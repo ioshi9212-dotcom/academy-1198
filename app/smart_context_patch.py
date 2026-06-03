@@ -120,7 +120,20 @@ def focused_calendar(current_date: str | None, calendar_text: str) -> Dict[str, 
 
 
 def patch_main_context(ns: Dict[str, Any]) -> None:
-    """Patch main.build_turn_context without rewriting the whole API file."""
+    """Patch runtime context to behave like the old academy: context first, no mandatory turn saving action."""
+
+    original_actions_schema = ns.get("actions_schema_json")
+
+    def context_only_actions_schema() -> Dict[str, Any]:
+        schema = original_actions_schema() if callable(original_actions_schema) else {}
+        paths = schema.get("paths") if isinstance(schema.get("paths"), dict) else {}
+        paths.pop("/api/v1/sessions/{session_id}/turn-result", None)
+        paths.pop("/api/v1/sessions/{session_id}/apply-turn-result", None)
+        info = schema.get("info") if isinstance(schema.get("info"), dict) else {}
+        info["version"] = "1.3.1-context-only"
+        schema["info"] = info
+        schema["paths"] = paths
+        return schema
 
     def runtime_json_file(filename: str, session_id: str, default: Any) -> Any:
         return ns["read_json"](ns["runtime_state_path"](session_id, filename), default)
@@ -191,10 +204,9 @@ def patch_main_context(ns: Dict[str, Any]) -> None:
             "turn_counter": ns["story_lines"](session_id).get("turn_counter", {}),
             "actions_contract": {
                 "default_context": "POST /api/v1/turn/context",
-                "session_turn_contract": "POST /api/v1/sessions/{session_id}/turn-contract",
-                "submit_result": "POST /api/v1/sessions/{session_id}/turn-result",
-                "apply_turn_result": "POST /api/v1/sessions/{session_id}/apply-turn-result",
-                "note": "If this response is returned, Action API is available.",
+                "read_file": "GET /api/v1/files/{file_path}",
+                "save_turn_result": "not exposed in GPT Actions; scene output is the user-facing result",
+                "note": "Generate the full scene after this context. Do not call a save action instead of answering.",
             },
             "checks": [
                 "Read gpt/scene_format.md before scene output.",
@@ -205,8 +217,9 @@ def patch_main_context(ns: Dict[str, Any]) -> None:
                 "Use focused_knowledge before NPC claims.",
                 "Use focused_relationships before relationship tension or open threads.",
                 "Do not write player decisions, emotions, or replies for Akira.",
-                "After scene output, call submitTurnResult or applyTurnResult to persist state.",
+                "Return the full user-facing scene. Never replace it with a save summary.",
             ],
         }
 
+    ns["actions_schema_json"] = context_only_actions_schema
     ns["build_turn_context"] = smart_build_turn_context
