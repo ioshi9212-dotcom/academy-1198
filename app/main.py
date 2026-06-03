@@ -563,3 +563,6 @@ def openapi_actions_json() -> Dict[str, Any]:
 @app.get("/openapi-actions.yaml", response_class=PlainTextResponse)
 def openapi_actions_yaml() -> str:
     return json.dumps(actions_schema_json(), ensure_ascii=False, indent=2) + "\n"
+
+from app.smart_context_patch import patch_main_context
+patch_main_context(globals())
